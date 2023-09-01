@@ -1,0 +1,25 @@
+{
+  "name": "lottery-number-picker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build",
+    "dev1": "node --loader ts-node/esm ./src/index.ts",
+    "dev2:1": "tsc --watch",
+    "dev2:2": "nodemon build",
+    "start": "node --enable-source-maps build",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "tsc-watch": "^6.0.4",
+    "typescript": "^5.1.6",
+    "vitest": "^0.34.2"
+  }
+}
