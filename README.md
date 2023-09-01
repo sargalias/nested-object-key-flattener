@@ -1,25 +1,46 @@
-# Node app starter pack
+# Nested object key flattener
 
-This is a starter pack for a Node and TypeScript projects. It's for a back end project where bundling isn't required.
-
-The motivation was to overcome the challenge with the current Node ecosystem having poor support for ESM.
-
-There were multiple things I wasn't able to use such as nodemon, ts-node on its own or ts-node-dev.
-
-The solutions that worked were to use node with with loader `ts-node/esm`, or to compile TypeScript in watch mode and then use `nodemon` on the resulting JavaScript.
-
-Additionally, for standard Node to work, I had to include the `.js` file extension every time I imported something in a TypeScript file.
-
-So, it was all a bit of a mess.
-
-The result is that I can use modern features such as ESM imports and top-level async await.
+This is a project with a small function implementation that takes a nested object and returns an array of the keys.
 
 
-## Instructions for your own development
+## Description
 
-When importing, use `.js` file extensions. For example, write import statements such as `import foo from './foo.js'`.
+Input: The function takes a nested object with values that are valid in JSON. That includes things like strings, numbers, booleans, null, arrays and objects.
+
+Output: An array which contains strings representing the keys and indices of the object, including nested ones. Keys and indices should be represented in dot notation for objects (e.g. `object.value`) and bracket notation for arrays (e.g. `array[0]`).
+
+Example:
+
+```typescript
+const result = keysOf({
+  name: 'Bob',
+  age: 22,
+  skills: ['JavaScript', 'React'],
+  address: {
+    city: 'London',
+    postcode: 'AAAA AAA'
+  }
+});
+
+console.log(result);
+/*
+Output:
+[
+  'name',
+  'age',
+  'skills[0]',
+  'skills[1]',
+  'address.city',
+  'address.postcode'
+]
+*/
+```
 
 
+## Instructions on Running the Project
 
-
+1. Make sure Node is installed. You can install it at [nodejs.org](https://nodejs.org/en/download).
+2. Clone the repository and navigate to the project directory.
+3. Run `npm install` to install dependencies.
+4. Run `npm run test` to run the tests.
 
